@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
 		HandleEvents();
 		Update();
 		Render();
-		SDL_Delay(50);	// 50 ╧п╦╝╪╪да╣Е ╠Б╢ы╦╟╢ы.
+		SDL_Delay(50);	// 50 б╧ц░б╦б╝б╪б╪ц└ц│б╣ц╔ б╠ц╒б╢ц≥б╦б╟б╢ц≥.
 		g_last_time_ms = cur_time_ms;
 	}
 
