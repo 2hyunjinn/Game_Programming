@@ -4,71 +4,71 @@
 #include "SDL_image.h"
 using namespace std;
 
-// Èê·¯°£ ½Ã°£ ±â·Ï
+// í˜ëŸ¬ê°„ ì‹œê°„ ê¸°ë¡
 double g_elapsed_time_ms;
 
 int f_state;
-int f_X, f_Y; // ºñÇà±âÀÇ À§Ä¡
-int m_X, m_Y; // ¹Ì»çÀÏÀÇ À§Ä¡
+int f_X, f_Y; // ë¹„í–‰ê¸°ì˜ ìœ„ì¹˜
+int m_X, m_Y; // ë¯¸ì‚¬ì¼ì˜ ìœ„ì¹˜
 
 bool bullet[30];
 short m_pos[30][2];
 int cnt;
 
-SDL_Texture* g_plane_texture; // ºñÇà±â º¹»ç ¹ŞÀ» °÷
-SDL_Rect g_char_pos; // ºñÇà±âÀÇ ÇöÀç À§Ä¡
-SDL_Rect g_source_rect; // ºñÇà±â Àß¶ó¿Ã °÷ÀÇ »ç°¢Çü
+SDL_Texture* g_plane_texture; // ë¹„í–‰ê¸° ë³µì‚¬ ë°›ì„ ê³³
+SDL_Rect g_char_pos; // ë¹„í–‰ê¸°ì˜ í˜„ì¬ ìœ„ì¹˜
+SDL_Rect g_source_rect; // ë¹„í–‰ê¸° ì˜ë¼ì˜¬ ê³³ì˜ ì‚¬ê°í˜•
 
-// SDL_Rect g_destination_rect; // ºÙÀÏ °÷ÀÇ »ç°¢Çü
+// SDL_Rect g_destination_rect; // ë¶™ì¼ ê³³ì˜ ì‚¬ê°í˜•
 
 SDL_Texture* g_missile_texture;
-SDL_Rect g_missile_pos[30]; // ¹Ì»çÀÏÀÇ ÇöÀç À§Ä¡
-SDL_Rect g_missile_rect; // ¹Ì»çÀÏ Àß¶ó¿Ã °÷ÀÇ »ç°¢Çü
+SDL_Rect g_missile_pos[30]; // ë¯¸ì‚¬ì¼ì˜ í˜„ì¬ ìœ„ì¹˜
+SDL_Rect g_missile_rect; // ë¯¸ì‚¬ì¼ ì˜ë¼ì˜¬ ê³³ì˜ ì‚¬ê°í˜•
 
 SDL_Texture* bg_texture;
-SDL_Rect bg_destination_rect; // ¹è°æ
-SDL_Rect bg_rect; // ¹è°æ Àß¶ó¿Ã °÷ÀÇ »ç°¢Çü
+SDL_Rect bg_destination_rect; // ë°°ê²½
+SDL_Rect bg_rect; // ë°°ê²½ ì˜ë¼ì˜¬ ê³³ì˜ ì‚¬ê°í˜•
 
 /////////////////////////////////////////////////////////////
 // InitGame() 
-// ÇÁ·Î±×·¥ÀÌ ½ÃÀÛµÉ ¶§ ÃÖÃÊ¿¡ ÇÑ ¹ø È£ÃâµÇ´Â ÇÔ¼ö.
-// ÀÌ ÇÔ¼ö¿¡¼­ °ÔÀÓ¿¡ ÇÊ¿äÇÑ ÀÚ¿ø(ÀÌ¹ÌÁö, »ç¿îµå µî)À» ·ÎµùÇÏ°í, »óÅÂ º¯¼öµéÀ» ÃÊ±âÈ­ ÇØ¾ßÇÑ´Ù.
+// í”„ë¡œê·¸ë¨ì´ ì‹œì‘ë  ë•Œ ìµœì´ˆì— í•œ ë²ˆ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜.
+// ì´ í•¨ìˆ˜ì—ì„œ ê²Œì„ì— í•„ìš”í•œ ìì›(ì´ë¯¸ì§€, ì‚¬ìš´ë“œ ë“±)ì„ ë¡œë”©í•˜ê³ , ìƒíƒœ ë³€ìˆ˜ë“¤ì„ ì´ˆê¸°í™” í•´ì•¼í•œë‹¤.
 void InitGame() {
     g_flag_running = true;
     g_elapsed_time_ms = 0;
     
-    // ¹è°æ ÀÌ¹ÌÁö ¼ÒÈ¯
+    // ë°°ê²½ ì´ë¯¸ì§€ ì†Œí™˜
     SDL_Surface* bg_surface = IMG_Load("../../image/wallpaperbetter.jpg");
     bg_texture = SDL_CreateTextureFromSurface(g_renderer, bg_surface);
     SDL_FreeSurface(bg_surface);
 
-    // ºñÇà±â ÀÌ¹ÌÁö ¼ÒÈ¯
+    // ë¹„í–‰ê¸° ì´ë¯¸ì§€ ì†Œí™˜
     SDL_Surface* fighter_plane = IMG_Load("../../image/fighter.png");
     g_plane_texture = SDL_CreateTextureFromSurface(g_renderer, fighter_plane);
-    SDL_FreeSurface(fighter_plane); // ÀÌÁ¦ ¾ê´Â ÇÊ¿ä¾øÀ¸´Ï ¸Ş¸ğ¸® ÇØÁ¦
+    SDL_FreeSurface(fighter_plane); // ì´ì œ ì–˜ëŠ” í•„ìš”ì—†ìœ¼ë‹ˆ ë©”ëª¨ë¦¬ í•´ì œ
 
-    // ¹Ì»çÀÏ ÀÌ¹ÌÁö ¼ÒÈ¯
+    // ë¯¸ì‚¬ì¼ ì´ë¯¸ì§€ ì†Œí™˜
     SDL_Surface* missile_surface = IMG_Load("../../image/missile.png");
     g_missile_texture = SDL_CreateTextureFromSurface(g_renderer, missile_surface);
     SDL_FreeSurface(missile_surface);
 
-    // ¹è°æ ±×¸²¿¡¼­ Àß¶ó¿Ã °÷
+    // ë°°ê²½ ê·¸ë¦¼ì—ì„œ ì˜ë¼ì˜¬ ê³³
     bg_rect = { 0,0,1920,1080 };
 
-    // ¹è°æ »çÀÌÁî
+    // ë°°ê²½ ì‚¬ì´ì¦ˆ
     bg_destination_rect = { 0,0,800,600 };
 
-    // ºñÇà±â ±×¸²¿¡¼­ Àß¶ó¿Ã °÷
+    // ë¹„í–‰ê¸° ê·¸ë¦¼ì—ì„œ ì˜ë¼ì˜¬ ê³³
     g_source_rect = { 0,0,31,26 };
 
-    // ¹Ì»çÀÏ ±×¸²¿¡¼­ Àß¶ó¿Ã °÷
+    // ë¯¸ì‚¬ì¼ ê·¸ë¦¼ì—ì„œ ì˜ë¼ì˜¬ ê³³
     g_missile_rect = { 0, 0, 256, 256 };
 
-    // ºñÇà±â ÃÖÃÊ À§Ä¡
+    // ë¹„í–‰ê¸° ìµœì´ˆ ìœ„ì¹˜
     g_char_pos = { 400, 500, 62, 52 };
 
     // Clear the console screen.
-    // Ç¥ÁØÃâ·Â È­¸éÀ» ±ú²ıÈ÷ Áö¿î´Ù.
+    // í‘œì¤€ì¶œë ¥ í™”ë©´ì„ ê¹¨ë—íˆ ì§€ìš´ë‹¤.
     system("cls");
 }
 
@@ -76,22 +76,22 @@ void InitGame() {
 
 /////////////////////////////////////////////////////////////
 // Update() 
-// °ÔÀÓÀÇ ³»¿ëÀ» ¾÷µ¥ÀÌÆ®ÇÏ´Â ÇÔ¼ö.
-// ½ÇÁ¦ °ÔÀÓÀÇ ·êÀ» ±¸ÇöÇØ¾ßÇÏ´Â °÷.
-// °ÔÀÓ¿¡¼­ ÀÏ¾î³ª´Â º¯È­´Â ¸ğµÎ ÀÌ °÷¿¡¼­ ±¸ÇöÇÑ´Ù.
-// main ÇÔ¼öÀÇ while loop¿¡ ÀÇÇØ¼­ ¹«ÇÑÈ÷ ¹İº¹ È£ÃâµÈ´Ù´Â °ÍÀ» ÁÖÀÇ.
+// ê²Œì„ì˜ ë‚´ìš©ì„ ì—…ë°ì´íŠ¸í•˜ëŠ” í•¨ìˆ˜.
+// ì‹¤ì œ ê²Œì„ì˜ ë£°ì„ êµ¬í˜„í•´ì•¼í•˜ëŠ” ê³³.
+// ê²Œì„ì—ì„œ ì¼ì–´ë‚˜ëŠ” ë³€í™”ëŠ” ëª¨ë‘ ì´ ê³³ì—ì„œ êµ¬í˜„í•œë‹¤.
+// main í•¨ìˆ˜ì˜ while loopì— ì˜í•´ì„œ ë¬´í•œíˆ ë°˜ë³µ í˜¸ì¶œëœë‹¤ëŠ” ê²ƒì„ ì£¼ì˜.
 void Update() {
-    /* ºñÇà±â */
-    if (f_state == 1) { // ¿ŞÂÊ
+    /* ë¹„í–‰ê¸° */
+    if (f_state == 1) { // ì™¼ìª½
         g_char_pos.x -= 10;
     }
-    else if (f_state == 2) { // ¿À¸¥ÂÊ
+    else if (f_state == 2) { // ì˜¤ë¥¸ìª½
         g_char_pos.x += 10;
     }
-    else if (f_state == 3) { // À§
+    else if (f_state == 3) { // ìœ„
         g_char_pos.y -= 10;
     }
-    else if (f_state == 4) { // ¾Æ·¡
+    else if (f_state == 4) { // ì•„ë˜
         g_char_pos.y += 10;
     }
     else {
@@ -115,23 +115,23 @@ void Update() {
 
 /////////////////////////////////////////////////////////////
 // Render() 
-// ±×¸²À» ±×¸®´Â ÇÔ¼ö.
-// main ÇÔ¼öÀÇ while loop¿¡ ÀÇÇØ¼­ ¹«ÇÑÈ÷ ¹İº¹ È£ÃâµÈ´Ù´Â °ÍÀ» ÁÖÀÇ.
+// ê·¸ë¦¼ì„ ê·¸ë¦¬ëŠ” í•¨ìˆ˜.
+// main í•¨ìˆ˜ì˜ while loopì— ì˜í•´ì„œ ë¬´í•œíˆ ë°˜ë³µ í˜¸ì¶œëœë‹¤ëŠ” ê²ƒì„ ì£¼ì˜.
 void Render() {
 
     // background
-    SDL_RenderCopy(g_renderer, bg_texture, &bg_rect, &bg_destination_rect); // Àß¶ó¿Ã °÷ÀÇ »ç°¢Çü, ºÙÀÏ °÷ÀÇ »ç°¢Çü
+    SDL_RenderCopy(g_renderer, bg_texture, &bg_rect, &bg_destination_rect); // ì˜ë¼ì˜¬ ê³³ì˜ ì‚¬ê°í˜•, ë¶™ì¼ ê³³ì˜ ì‚¬ê°í˜•
 
-    // ºñÇà±â ±×¸®±â
-    SDL_RenderCopy(g_renderer, g_plane_texture, &g_source_rect, &g_char_pos); // Àß¶ó¿Ã °÷ÀÇ »ç°¢Çü, ºÙÀÏ °÷ÀÇ »ç°¢Çü
+    // ë¹„í–‰ê¸° ê·¸ë¦¬ê¸°
+    SDL_RenderCopy(g_renderer, g_plane_texture, &g_source_rect, &g_char_pos); // ì˜ë¼ì˜¬ ê³³ì˜ ì‚¬ê°í˜•, ë¶™ì¼ ê³³ì˜ ì‚¬ê°í˜•
 
-    // 3. ¹Ì»çÀÏ ±×¸®±â 
+    // 3. ë¯¸ì‚¬ì¼ ê·¸ë¦¬ê¸° 
     for (int i = 0; i < 30; i++) {
         if (bullet[i]) {
             if (g_missile_pos[i].y < 0) bullet[i] = false;
-            // ¹Ì»çÀÏ ¹ß»ç
+            // ë¯¸ì‚¬ì¼ ë°œì‚¬
             g_missile_pos[i].y-=10;
-            SDL_RenderCopy(g_renderer, g_missile_texture, &g_missile_rect, &g_missile_pos[i]); // Àß¶ó¿Ã °÷ÀÇ »ç°¢Çü, ºÙÀÏ °÷ÀÇ »ç°¢Çü
+            SDL_RenderCopy(g_renderer, g_missile_texture, &g_missile_rect, &g_missile_pos[i]); // ì˜ë¼ì˜¬ ê³³ì˜ ì‚¬ê°í˜•, ë¶™ì¼ ê³³ì˜ ì‚¬ê°í˜•
         }
     }
     SDL_RenderPresent(g_renderer);
@@ -140,8 +140,8 @@ void Render() {
 
 /////////////////////////////////////////////////////////////
 // HandleEvents() 
-// ÀÌº¥Æ®¸¦ Ã³¸®ÇÏ´Â ÇÔ¼ö.
-// main ÇÔ¼öÀÇ while loop¿¡ ÀÇÇØ¼­ ¹«ÇÑÈ÷ ¹İº¹ È£ÃâµÈ´Ù´Â °ÍÀ» ÁÖÀÇ.
+// ì´ë²¤íŠ¸ë¥¼ ì²˜ë¦¬í•˜ëŠ” í•¨ìˆ˜.
+// main í•¨ìˆ˜ì˜ while loopì— ì˜í•´ì„œ ë¬´í•œíˆ ë°˜ë³µ í˜¸ì¶œëœë‹¤ëŠ” ê²ƒì„ ì£¼ì˜.
 void HandleEvents()
 {
     SDL_Event event;
@@ -187,8 +187,8 @@ void HandleEvents()
 
 /////////////////////////////////////////////////////////////
 // ClearGame() 
-// ÇÁ·Î±×·¥ÀÌ ³¡³¯ ¶§ ÇÑ ¹ø È£ÃâµÇ´Â ÇÔ¼ö.
-// ÀÌ ÇÔ¼ö¿¡¼­ »ç¿ëµÈ ÀÚ¿ø(ÀÌ¹ÌÁö, »ç¿îµå µî)°ú ¸Ş¸ğ¸® µîÀ» ÇØÁ¦ÇØ¾ßÇÑ´Ù.
+// í”„ë¡œê·¸ë¨ì´ ëë‚  ë•Œ í•œ ë²ˆ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜.
+// ì´ í•¨ìˆ˜ì—ì„œ ì‚¬ìš©ëœ ìì›(ì´ë¯¸ì§€, ì‚¬ìš´ë“œ ë“±)ê³¼ ë©”ëª¨ë¦¬ ë“±ì„ í•´ì œí•´ì•¼í•œë‹¤.
 void ClearGame(){
     SDL_DestroyTexture(g_plane_texture);
     SDL_DestroyTexture(g_missile_texture);
