@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
 	g_window = SDL_CreateWindow("Ascii Game", 100, 100, 800, 600, 0);
 
 	// rendering context
-	g_renderer = SDL_CreateRenderer(g_window, -1, 0); // -1 ³ÖÀ¸¸é ¾Ë¾Æ¼­ µÊ
+	g_renderer = SDL_CreateRenderer(g_window, -1, 0); // -1 Â³Ã–Ã€Â¸Â¸Ã© Â¾Ã‹Â¾Ã†Â¼Â­ ÂµÃŠ
 
 
 	InitGame();
