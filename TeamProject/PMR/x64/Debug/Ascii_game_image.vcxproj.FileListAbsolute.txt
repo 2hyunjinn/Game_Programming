@@ -1,0 +1,5 @@
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Ascii_Game_Sound\x64\Debug\Ascii_game_sound.exe
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\중간고사 대체과제\x64\Debug\Ascii_game_sound.exe
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Ascii_Game_Phase\x64\Debug\ASCII_GAME_Phase.exe
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\팀플\프로젝트\_PMR\x64\Debug\PMR.sln.exe
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\팀플\일단임시파일\프로젝트\_PMR\x64\Debug\PMR.sln.exe
