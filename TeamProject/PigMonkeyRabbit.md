@@ -1,7 +1,5 @@
 <h3 align="center"><b>GAME PROGRAMMING TEAM PROJECT</b></h3>
-</br>
 <h3 align="center"><b>🐷🐵🐰</b></h3>
-</br>
 <h3 align="center"><b>PIG_MONKEY_RABBIT_GAME</b></h3>
 </br>
 
