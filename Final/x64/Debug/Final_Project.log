@@ -1,0 +1,29 @@
+﻿  Ball.cpp
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\Ball.cpp(55,17): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\Ball.cpp(56,17): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  G2W.cpp
+  ProjectileGame.cpp
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(138,57): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(140,27): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(141,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(145,58): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(147,28): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(148,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(151,57): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(152,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(153,28): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(154,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(157,57): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(159,28): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(163,67): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(165,37): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(166,32): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(175,48): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(176,48): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(197,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(198,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(215,72): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\ProjectileGame.cpp(216,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  main.cpp
+  코드를 생성하고 있습니다...
+  Final_Project.vcxproj -> C:\hyunjinLee\대학강의자료\3-1\게임프로그래밍_최명걸\GameProgramming\Final_Project\x64\Debug\Final_Project.exe
